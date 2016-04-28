@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace BuzzCatBlind.Hubs
 {
@@ -9,6 +8,6 @@ namespace BuzzCatBlind.Hubs
         void TalkAs(string name, string message);
         void TalkTo(string user, string message);
         void TalkToAs(string name, string user, string message);
-        IDictionary<string, string> ServerStatus();
+        IDictionary<string, HashSet<string>> ServerStatus();
     }
 }
