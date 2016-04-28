@@ -125,10 +125,14 @@ namespace BuzzCatBlind.Hubs
                 }
                 else
                 {
+<<<<<<< HEAD
                     lock (connSet)
                     {
                         connSet.Remove(connectionId);
                     }
+=======
+                    connSet.Remove(connectionId);
+>>>>>>> d6c9772938409c898ce6c957efd5c2f01b97d025
                     if (connSet.Count == 0)
                     {
                         connections.TryRemove(name, out connSet);
