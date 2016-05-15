@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuzzCatBlind", "BuzzCatBlind\BuzzCatBlind.csproj", "{3F75501C-837C-49A0-968D-E6E273C9C647}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlindCat", "BlindCat\BlindCat.csproj", "{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{3F75501C-837C-49A0-968D-E6E273C9C647}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F75501C-837C-49A0-968D-E6E273C9C647}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F75501C-837C-49A0-968D-E6E273C9C647}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
