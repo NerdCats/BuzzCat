@@ -90,6 +90,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Utilities\ConnectionMapping.cs" />
     <Compile Include="Utilities\IClient.cs" />
     <Compile Include="Utilities\IShadowClient.cs" />
   </ItemGroup>
