@@ -84,21 +84,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hubs\IServerHub.cs" />
-    <Compile Include="Hubs\IShadowHub.cs" />
+    <Compile Include="Lib\Base\IServerHub.cs" />
+    <Compile Include="Lib\Base\IShadowHub.cs" />
     <Compile Include="Hubs\ServerHub.cs" />
     <Compile Include="Hubs\ShadowHub.cs" />
+    <Compile Include="Lib\Base\IStompClient.cs" />
+    <Compile Include="Lib\Base\IStompHub.cs" />
+    <Compile Include="Lib\BuzzCatServer.cs" />
+    <Compile Include="Lib\Message\EchoMessage.cs" />
+    <Compile Include="Lib\Message\IStompMessage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\ConnectionMapping.cs" />
-    <Compile Include="Utilities\IClient.cs" />
+    <Compile Include="Lib\Base\IClient.cs" />
     <Compile Include="Utilities\IShadowClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

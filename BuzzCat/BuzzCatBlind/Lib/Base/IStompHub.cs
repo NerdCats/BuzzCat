@@ -4,10 +4,10 @@
 
     public interface IStompHub
     {
-        IStompMessage Connect(IStompMessage message);
-        IStompMessage Disconnect(IStompMessage message);
-        IStompMessage Subscribe(IStompMessage message);
-        IStompMessage Unsubscribe(IStompMessage message);
-        IStompMessage Send(IStompMessage message);
+        void Connect(IStompMessage message);
+        void Disconnect(IStompMessage message);
+        void Subscribe(IStompMessage message);
+        void Unsubscribe(IStompMessage message);
+        void Send(IStompMessage message);
     }
 }

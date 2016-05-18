@@ -51,7 +51,7 @@ namespace BuzzCat.Utilities
             {
                 return connSet;
             }
-            
+
             return Enumerable.Empty<string>();
         }
     }

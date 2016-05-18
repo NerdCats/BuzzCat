@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuzzCatBlind", "BuzzCatBlind\BuzzCatBlind.csproj", "{3F75501C-837C-49A0-968D-E6E273C9C647}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuzzCat", "BuzzCatBlind\BuzzCat.csproj", "{3F75501C-837C-49A0-968D-E6E273C9C647}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlindCat", "BlindCat\BlindCat.csproj", "{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuzzCat.Test", "BuzzCat.Test\BuzzCat.Test.csproj", "{8EDF4429-251A-416D-BB68-93F227191BCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D78D6652-12BE-4F75-9E7C-11DFB65EC3AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EDF4429-251A-416D-BB68-93F227191BCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

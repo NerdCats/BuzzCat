@@ -4,9 +4,9 @@
 
     public interface IStompClient
     {
-        IStompMessage Message(IStompMessage message);
-        IStompMessage Reciept(IStompMessage message);
-        IStompMessage Error(IStompMessage message);
-        IStompMessage Connected(IStompMessage message);
+        void Message(IStompMessage message);
+        void Reciept(IStompMessage message);
+        void Error(IStompMessage message);
+        void Connected(IStompMessage message);
     }
 }

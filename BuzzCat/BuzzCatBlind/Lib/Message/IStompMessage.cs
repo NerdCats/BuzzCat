@@ -7,6 +7,7 @@
     {
         string Command { get; set; }
         Dictionary<string, string> Headers { get; set; }
+        string Type { get; set; }
     }
 
     public interface IStompMessage : IStompMessageBase

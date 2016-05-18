@@ -1,4 +1,4 @@
-﻿using ConsoleClient.Models;
+﻿using BlindCat.Models;
 using Microsoft.AspNet.SignalR.Client;
 using System;
 using System.Collections.Generic;
@@ -15,21 +15,29 @@ namespace BlindCat
             string url = "http://localhost:8080";
             var hubConnection = new HubConnection(url, queryString);
 
-            string hubName = "BuzzCat";
+            string hubName = "TestCat";
             IHubProxy hubProxy = hubConnection.CreateHubProxy(hubName);
 
-            hubProxy.On<AssetPayload>("getLocation", x =>
-            {
-                Console.WriteLine(x.AssetId);
-                Console.WriteLine(x.Name);
-                x.Point.coordinates.ForEach(Console.WriteLine);
+            hubProxy.On<IStompMessage>("message", (data) => {
+                Console.WriteLine(data.Body);
             });
+
+            
+
+            //hubProxy.On<AssetPayload>("getLocation", x =>
+            //{
+            //    Console.WriteLine(x.AssetId);
+            //    Console.WriteLine(x.Name);
+            //    x.Point.coordinates.ForEach(Console.WriteLine);
+            //});
 
             hubConnection.Start().Wait();
 
+            var input = new EchoMessage("ECHO");
+
             while (true)
             {
-
+                hubProxy.Invoke("connect", input);
             }
         }
     }
