@@ -1,4 +1,4 @@
-﻿namespace BuzzCatBlind.Utilities
+﻿namespace BuzzCat.Lib.Base
 {
     public interface IClient
     {

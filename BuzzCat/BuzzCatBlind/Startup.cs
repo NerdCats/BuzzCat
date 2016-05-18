@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNet.SignalR;
-using Microsoft.Owin.Cors;
-using Owin;
-using System.Diagnostics;
-
-namespace BuzzCatBlind
+﻿namespace BuzzCat
 {
+    using Microsoft.AspNet.SignalR;
+    using Microsoft.Owin.Cors;
+    using Owin;
+    using System.Diagnostics;
+
     public class Startup
     {
         public void Configuration(IAppBuilder app)

@@ -1,4 +1,4 @@
-﻿namespace BuzzCatBlind.Utilities
+﻿namespace BuzzCat.Utilities
 {
     public interface IShadowClient
     {

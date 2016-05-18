@@ -1,8 +1,8 @@
-﻿using Microsoft.Owin.Hosting;
-using System;
-
-namespace BuzzCatBlind
+﻿namespace BuzzCat
 {
+    using Microsoft.Owin.Hosting;
+    using System;
+
     class Program
     {
         static void Main(string[] args)

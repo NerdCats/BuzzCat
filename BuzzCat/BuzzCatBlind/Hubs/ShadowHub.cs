@@ -1,10 +1,11 @@
-﻿using BuzzCatBlind.Utilities;
-using Microsoft.AspNet.SignalR;
-using Microsoft.AspNet.SignalR.Hubs;
-using System.Collections.Generic;
-
-namespace BuzzCatBlind.Hubs
+﻿namespace BuzzCat.Hubs
 {
+    using Lib.Base;
+    using Utilities;
+    using Microsoft.AspNet.SignalR;
+    using Microsoft.AspNet.SignalR.Hubs;
+    using System.Collections.Generic;
+
     [HubName("ShadowHub")]
     public class ShadowHub : Hub<IShadowClient>, IShadowHub 
     {

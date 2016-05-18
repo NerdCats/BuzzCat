@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BuzzCatBlind.Utilities
+namespace BuzzCat.Utilities
 {
     public class ConnectionMapping<T>
     {

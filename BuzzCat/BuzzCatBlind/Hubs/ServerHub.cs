@@ -1,11 +1,12 @@
-﻿using BuzzCatBlind.Utilities;
-using Microsoft.AspNet.SignalR;
-using Microsoft.AspNet.SignalR.Hubs;
-using System;
-using System.Threading.Tasks;
-
-namespace BuzzCatBlind.Hubs
+﻿namespace BuzzCat.Hubs
 {
+    using Lib.Base;
+    using Utilities;
+    using Microsoft.AspNet.SignalR;
+    using Microsoft.AspNet.SignalR.Hubs;
+    using System;
+    using System.Threading.Tasks;
+
     [HubName("BuzzCat")]
     public class ServerHub : Hub<IClient>, IServerHub
     {

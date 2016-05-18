@@ -1,4 +1,4 @@
-﻿namespace BuzzCatBlind.Hubs
+﻿namespace BuzzCat.Lib.Base
 {
     internal interface IShadowHub
     {

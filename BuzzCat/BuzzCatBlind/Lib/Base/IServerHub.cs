@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace BuzzCatBlind.Hubs
+﻿namespace BuzzCat.Lib.Base
 {
     internal interface IServerHub
     {
