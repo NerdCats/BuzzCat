@@ -1,9 +1,9 @@
-﻿using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace BuzzCat.Utilities
+﻿namespace BuzzCat.Core.Lib.Connection
 {
+    using System.Collections.Concurrent;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class ConnectionMapping<T>
     {
         private ConcurrentDictionary<T, HashSet<string>> connections =
