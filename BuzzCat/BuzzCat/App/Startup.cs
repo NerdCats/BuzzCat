@@ -6,6 +6,8 @@ using Microsoft.Owin;
 using Microsoft.Owin.Cors;
 using Owin;
 using System.Diagnostics;
+using System;
+using Microsoft.Owin.Security.OAuth;
 
 [assembly: OwinStartup(typeof(BuzzCat.Startup))]
 namespace BuzzCat
@@ -28,9 +30,18 @@ namespace BuzzCat
                 enableDetailedErrors = true;
             }
 
+            ConfigureAuth(app);
+
             app.MapSignalR("/buzz", new HubConfiguration()
             {
                 EnableDetailedErrors = enableDetailedErrors
+            });
+        }
+
+        private void ConfigureAuth(IAppBuilder app)
+        {
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
+            {
             });
         }
     }

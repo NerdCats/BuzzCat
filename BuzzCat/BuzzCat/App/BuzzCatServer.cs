@@ -8,6 +8,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    [Authorize(RequireOutgoing = false)]
     [HubName("BuzzHub")]
     public class BuzzCatServer : Hub<IBuzzCatClient>, IBuzzCatServer
     {
