@@ -18,9 +18,6 @@ namespace BuzzCat
         {
             var enableDetailedErrors = false;
 
-            GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
-            GlobalHost.HubPipeline.AddModule(new LoggingPipelineModule());
-
             app.Properties["host.AppMode"] = Settings.Get<AppSettings>().Env;
             app.UseCors(CorsOptions.AllowAll);
 
@@ -32,6 +29,8 @@ namespace BuzzCat
 
             ConfigureAuth(app);
 
+            GlobalHost.TraceManager.Switch.Level = SourceLevels.Information;
+            GlobalHost.HubPipeline.AddModule(new LoggingPipelineModule());
             app.MapSignalR("/buzz", new HubConfiguration()
             {
                 EnableDetailedErrors = enableDetailedErrors
