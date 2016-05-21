@@ -41,8 +41,8 @@ namespace BuzzCat
         private void ConfigureAuth(IAppBuilder app)
         {
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
-            {
-            });
+            { 
+            } );
         }
     }
 }

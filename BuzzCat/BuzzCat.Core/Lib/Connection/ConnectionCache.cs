@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class ConnectionMapping<T>
+    public class ConnectionCache<T>
     {
         private ConcurrentDictionary<T, HashSet<string>> connections = new ConcurrentDictionary<T, HashSet<string>>();
 

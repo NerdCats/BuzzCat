@@ -7,6 +7,5 @@
         Task Message(StompMessage message);
         Task Reciept(StompMessage message);
         Task Error(StompMessage message);
-        Task Connected(StompMessage message);
     }
 }
