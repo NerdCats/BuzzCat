@@ -1,10 +1,12 @@
 ﻿namespace BuzzCat.Core.Lib.Base
 {
+    using System.Threading.Tasks;
+
     public interface IBuzzCatClient
     {
-        void Message(StompMessage message);
-        void Reciept(StompMessage message);
-        void Error(StompMessage message);
-        void Connected(StompMessage message);
+        Task Message(StompMessage message);
+        Task Reciept(StompMessage message);
+        Task Error(StompMessage message);
+        Task Connected(StompMessage message);
     }
 }

@@ -1,11 +1,13 @@
-﻿namespace BuzzCat.Core.Lib.Base
+﻿using System.Threading.Tasks;
+
+namespace BuzzCat.Core.Lib.Base
 {
     public interface IBuzzCatServer
     {
-        void Connect(StompMessage message);
-        void Disconnect(StompMessage message);
-        void Subscribe(StompMessage message);
-        void Unsubscribe(StompMessage message);
-        void Send(StompMessage message);
+        Task Connect(StompMessage message);
+        Task Disconnect(StompMessage message);
+        Task Subscribe(StompMessage message);
+        Task Unsubscribe(StompMessage message);
+        Task Send(StompMessage message);
     }
 }
