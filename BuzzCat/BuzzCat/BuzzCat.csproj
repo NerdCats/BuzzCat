@@ -92,8 +92,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\LoggingPipelineModule.cs" />
     <Compile Include="App\Settings\AppSettings.cs" />
-    <Compile Include="BuzzCatServer.cs" />
+    <Compile Include="App\BuzzCatServer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

@@ -11,6 +11,8 @@
     {
         private static ConnectionMapping<string> connections = new ConnectionMapping<string>();
 
+
+
         public void Connect(StompMessage message)
         {
             throw new NotImplementedException();
