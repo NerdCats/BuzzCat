@@ -57,13 +57,13 @@
 
         protected override bool OnBeforeOutgoing(IHubOutgoingInvokerContext context)
         {
-            logger.Debug($"Method {context.Invocation.Method} invoking");
+            logger.Debug($"Method {context.Invocation.Method} invoking on client hub {context.Invocation.Hub}");
             return base.OnBeforeOutgoing(context);
         }
 
         protected override void OnAfterOutgoing(IHubOutgoingInvokerContext context)
         {
-            logger.Debug($"Method {context.Invocation.Method} invoked");
+            logger.Debug($"Method {context.Invocation.Method} invoked on client hub {context.Invocation.Hub}");
             base.OnAfterOutgoing(context);
         }
 
