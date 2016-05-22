@@ -22,7 +22,8 @@
         {
             // The reason we are sending back just a connected frame is because of:
             // 1. Signalr has its own conenct and disconnection protocol that handles authorization anyway
-            return new StompMessage() {
+            return new StompMessage()
+            {
                 Command = CommandNames.CONNECTED
             };
         }
@@ -34,7 +35,23 @@
 
         public Task Subscribe(StompMessage message)
         {
-            throw new NotImplementedException();
+            if (message.Command.ToLower() != "subscribe")
+            {
+                logger.Warn("Wrong command type {0} in message", message.Command);
+                this.Clients.Caller.Error(new StompMessage()
+                {
+                    Command = CommandNames.ERROR,
+                    Body = JObject.FromObject(new NotSupportedException("Command type not supported for this method"))
+                });
+            }
+
+            //TODO: Need to subscribe to a feed or something here 
+            return this.Clients.Caller.Reciept(
+                new StompMessage()
+                {
+                    Command = CommandNames.RECIEPT,
+                    Body = JObject.FromObject(string.Format("temp-id = {0}", 12345))
+                });
         }
 
         public Task Unsubscribe(StompMessage message)
@@ -71,7 +88,7 @@
             }
             catch (Exception ex)
             {
-                logger.Warn(ex, "Exception on disconnection");             
+                logger.Warn(ex, "Exception on disconnection");
             }
             return base.OnDisconnected(stopCalled);
         }
