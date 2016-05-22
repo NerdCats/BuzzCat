@@ -3,6 +3,7 @@
     public class CommandNames
     {
         public const string CONNECT = "CONNECT";
+        public const string CONNECTED = "CONNECTED";
         public const string DISCONNECT = "DISCONNECT";
         public const string SEND = "SEND";
         public const string SUBSCRIBE = "SUBSCRIBE";

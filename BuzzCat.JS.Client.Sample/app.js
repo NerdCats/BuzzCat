@@ -14,3 +14,6 @@ var client  = new signalR.client(
     /* doNotStart is option and defaulted to false. If set to true 
     client will not start until .start() is called */
 );
+
+console.log("Invoking buzzhub connect");
+client.invoke('BuzzHub', 'Connect', 'client');

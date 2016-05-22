@@ -6,22 +6,28 @@
     using Microsoft.AspNet.SignalR;
     using Microsoft.AspNet.SignalR.Hubs;
     using Newtonsoft.Json.Linq;
+    using NLog;
     using System;
     using System.Linq;
     using System.Threading.Tasks;
 
-    [Authorize(RequireOutgoing = false)]
+   // [Authorize(RequireOutgoing = false)]
     [HubName("BuzzHub")]
     public class BuzzCatServer : Hub<IBuzzCatClient>, IBuzzCatServer
     {
         private static ConnectionCache<string> connections = new ConnectionCache<string>();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        public Task Connect(StompMessage message)
+        public StompMessage Connect(StompMessage message)
         {
-            throw new NotImplementedException();
+            // The reason we are sending back just a connected frame is because of:
+            // 1. Signalr has its own conenct and disconnection protocol that handles authorization anyway
+            return new StompMessage() {
+                Command = CommandNames.CONNECTED
+            };
         }
 
-        public Task Disconnect(StompMessage message)
+        public StompMessage Disconnect(StompMessage message)
         {
             throw new NotImplementedException();
         }
@@ -44,8 +50,20 @@
         #region overrides
         public override Task OnConnected()
         {
-            string name = Context.User.Identity.Name;
-            connections.Add(name, Context.ConnectionId);
+            try
+            {
+                string name = Context.User.Identity.Name;
+                connections.Add(name, Context.ConnectionId);
+            }
+            catch (Exception ex)
+            {
+                Clients.Caller.Error(new StompMessage()
+                {
+                    Body = JObject.FromObject(ex),
+                    Command = CommandNames.ERROR,
+                    Type = "Exception"
+                });
+            }
             return base.OnConnected();
         }
 
@@ -55,18 +73,12 @@
             {
                 string name = Context.User.Identity.Name;
                 connections.Remove(name, Context.ConnectionId);
-                return base.OnDisconnected(stopCalled);
             }
             catch (Exception ex)
             {
-                Clients.Caller.Error(new StompMessage()
-                {
-                    Body = new JObject(ex),
-                    Command = CommandNames.ERROR,
-                    Type = "Exception"
-                });
-                return base.OnDisconnected(stopCalled);
+                logger.Warn(ex, "Exception on disconnection");             
             }
+            return base.OnDisconnected(stopCalled);
         }
 
         public override Task OnReconnected()
