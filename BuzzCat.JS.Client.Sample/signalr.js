@@ -33,7 +33,7 @@ var states = {
         for (value in states.connection) {
             if (states.connection[value] == code)
                 return value;
-        }        ;
+        };
         return undefined;
     }
 };
@@ -401,41 +401,41 @@ function clientInterface(baseUrl, hubs, reconnectTimeout, doNotStart) {
         return hub.invoke.apply(hub, args);
     };
 
-	var callTimeout = 30000;
-	var callCallbacks = {};
+    var callTimeout = 30000;
+    var callCallbacks = {};
 
     client.__defineGetter__('callTimeout', function () { return callTimeout; });
     client.__defineSetter__('callTimeout', function (val) { callTimeout = val; });
 
     client.call = function (hubName, methodName) {
-		var nohub = typeof client.invoke.apply(client, arguments) === 'undefined';
-		return {
-			done: function (cb, timeout) { // cb(err, result)
-				if (nohub) {
-					cb('No Hub');
-					return;
-				}
-				var messageId = client.lastMessageId;
-				var timeoutId = setTimeout(
-					function () {
-						delete callCallbacks[messageId];
-						cb('Timeout');
-					},
-					timeout || callTimeout
-				);
-				callCallbacks[messageId] = function (err, result) {
-					clearTimeout(timeoutId);
-					delete callCallbacks[messageId];
-					cb(err, result);
-				};
-			}
-		};
+        var nohub = typeof client.invoke.apply(client, arguments) === 'undefined';
+        return {
+            done: function (cb, timeout) { // cb(err, result)
+                if (nohub) {
+                    cb('No Hub');
+                    return;
+                }
+                var messageId = client.lastMessageId;
+                var timeoutId = setTimeout(
+                    function () {
+                        delete callCallbacks[messageId];
+                        cb('Timeout');
+                    },
+                    timeout || callTimeout
+                );
+                callCallbacks[messageId] = function (err, result) {
+                    clearTimeout(timeoutId);
+                    delete callCallbacks[messageId];
+                    cb(err, result);
+                };
+            }
+        };
     };
-	function handleCallResult(messageId, err, result) {
-		var cb = callCallbacks[messageId];
-		if (cb) cb(err, result);
-	}
-	
+    function handleCallResult(messageId, err, result) {
+        var cb = callCallbacks[messageId];
+        if (cb) cb(err, result);
+    }
+
     client.start = function () {
         _client.getBinding();
     };
@@ -510,21 +510,21 @@ function clientInterface(baseUrl, hubs, reconnectTimeout, doNotStart) {
             };
 
             var req = requestObject.request(abortUrlOptions,
-            function (res) {
+                function (res) {
 
-                //console.log('STATUS: ' + res.statusCode);
-                //console.log('HEADERS: ' + JSON.stringify(res.headers));
+                    //console.log('STATUS: ' + res.statusCode);
+                    //console.log('HEADERS: ' + JSON.stringify(res.headers));
 
-                res.on('data', function (chunk) {
-                    //str += chunk;
+                    res.on('data', function (chunk) {
+                        //str += chunk;
+                    });
+
+                    res.on('end', function () {
+                        console.log('Connection aborted');
+
+                    });
+
                 });
-
-                res.on('end', function () {
-                    console.log('Connection aborted');
-
-                });
-
-            });
 
             req.on('error', function (e) {
                 handlerErrors('Can\'t abort connection', e, abortUrlOptions);
@@ -680,7 +680,7 @@ function clientInterface(baseUrl, hubs, reconnectTimeout, doNotStart) {
 
                     _client.serviceHandlers.connected.apply(client, [connection]);
                 },
-                handlerErrors);
+                    handlerErrors);
             } else {
                 console.log("Connected!");
             }
@@ -744,9 +744,9 @@ function clientInterface(baseUrl, hubs, reconnectTimeout, doNotStart) {
                             }
                         }
                     }
-					else if (parsed.hasOwnProperty('I')) {
-						handleCallResult(+parsed.I, parsed.E, parsed.R);
-					}
+                    else if (parsed.hasOwnProperty('I')) {
+                        handleCallResult(+parsed.I, parsed.E, parsed.R);
+                    }
                 }
             }
         });

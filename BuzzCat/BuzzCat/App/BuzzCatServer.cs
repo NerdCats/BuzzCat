@@ -11,7 +11,7 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-   // [Authorize(RequireOutgoing = false)]
+    //[Authorize(RequireOutgoing = false)]
     [HubName("BuzzHub")]
     public class BuzzCatServer : Hub<IBuzzCatClient>, IBuzzCatServer
     {
@@ -25,11 +25,6 @@
             return new StompMessage() {
                 Command = CommandNames.CONNECTED
             };
-        }
-
-        public StompMessage Disconnect(StompMessage message)
-        {
-            throw new NotImplementedException();
         }
 
         public Task Send(StompMessage message)

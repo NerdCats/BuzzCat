@@ -5,7 +5,6 @@ namespace BuzzCat.Core.Lib.Base
     public interface IBuzzCatServer
     {
         StompMessage Connect(StompMessage message);
-        StompMessage Disconnect(StompMessage message);
         Task Subscribe(StompMessage message);
         Task Unsubscribe(StompMessage message);
         Task Send(StompMessage message);
