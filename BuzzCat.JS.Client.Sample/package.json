@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "signalr-client": "0.0.16"
+    "websocket": "^1.0.23"
   }
 }
